@@ -220,6 +220,15 @@ def hist(merged_data):
 hist(merged_data)
 
 
+map_data2 = merged_data.groupby('dep')['Accident_Id'].count().reset_index()
+ 
+# Supprimer la colonne "geometry" de map_data (si elle est présente dans merged_data)
+# map_data = map_data.drop(columns=['geometry'])
+# map_data2 = map_data2.drop(columns=['geometry'])
+ 
+# Si vous souhaitez fusionner map_data et map_data2 en utilisant la colonne 'dep'
+map_data = pd.merge(map_data2, gdf, on='dep', how='inner')
+
 st.header("Quels sont les départements où il y a le plus d'accident")
 st.markdown('<a name="eleventh"></a>',  unsafe_allow_html=True)
 
@@ -254,6 +263,8 @@ def map(map_data):
 
 st.subheader("Moyenne d'Accident par département en France métropolitaine")
 st.markdown('<a name="fith-section"></a>',  unsafe_allow_html=True)
+
+
 
 def map(map_data):
     # Créer une carte choroplèthe avec Plotly Express
