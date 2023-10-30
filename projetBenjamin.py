@@ -71,7 +71,7 @@ merged_data.info()
 
 st.markdown('<a name="top-section"></a>',  unsafe_allow_html=True)
 
-st.markdown("<h1 style='color: black;'>Les accidents de la route: Un fléau annuel </h1>", unsafe_allow_html=True)
+st.markdown("<h1> Les accidents de la route: Un fléau annuel </h1>", unsafe_allow_html=True)
 st.markdown("""
     <div style='text-align:center'>
         <h2>Analyse des accidents de la route pour déterminer où concentrer nos efforts afin de les réduire</h2>
