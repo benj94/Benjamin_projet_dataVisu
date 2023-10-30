@@ -21,6 +21,14 @@ data2 = pd.read_csv("https://www.data.gouv.fr/fr/datasets/r/a6ef711a-1f03-44cb-9
 data3 = pd.read_csv("https://www.data.gouv.fr/fr/datasets/r/62c20524-d442-46f5-bfd8-982c59763ec8", delimiter=";")
 data4 = pd.read_csv("https://www.data.gouv.fr/fr/datasets/r/c9742921-4427-41e5-81bc-f13af8bc31a0", delimiter=";")
 
+url = 'https://www.data.gouv.fr/fr/datasets/r/90b9341a-e1f7-4d75-a73c-bbc010c7feeb'
+gdf = gpd.read_file(url)
+ 
+# Supprimer la colonne "geometry" de gdf
+gdf = gdf.drop(columns=['geometry'])
+ 
+# Renommer la colonne 'code' en 'dep' dans gdf
+gdf = gdf.rename(columns={'code': 'dep'})
 st.sidebar.markdown("[GitHub](https://github.com/benj94/benben)")
 st.sidebar.markdown("[LinkedIn](https://www.linkedin.com/feed/)")
 
