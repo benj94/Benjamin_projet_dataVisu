@@ -276,7 +276,7 @@ def map(map_data):
     st.plotly_chart(fig)
 
 
-    map(map_data)
+map(map_data)
 
 mappings = {
     1 : 'Autoroute',
