@@ -1,7 +1,6 @@
 pandas 
 matplotlib
 plotly
-os
 geopandas
 numpy
 seaborn
