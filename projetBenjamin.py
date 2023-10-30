@@ -7,7 +7,6 @@ from matplotlib.pyplot import pie, axis, show
 import plotly.express as px
 import plotly.figure_factory as ff
 import plotly.graph_objects as go
-import os
 import geopandas as gpd 
 import matplotlib as mlt
 import numpy as np
