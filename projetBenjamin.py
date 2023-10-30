@@ -220,12 +220,36 @@ def hist(merged_data):
 hist(merged_data)
 
 
-
+st.header("Quels sont les départements où il y a le plus d'accident")
+st.markdown('<a name="eleventh"></a>',  unsafe_allow_html=True)
 
 # Charger les données géospatiales des départements
 url = 'https://www.data.gouv.fr/fr/datasets/r/90b9341a-e1f7-4d75-a73c-bbc010c7feeb'
 departements = gpd.read_file(url)
 
+
+
+url = 'https://www.data.gouv.fr/fr/datasets/r/90b9341a-e1f7-4d75-a73c-bbc010c7feeb'
+departements = gpd.read_file(url)
+ 
+def map(map_data):
+    # Créer une carte choroplèthe avec Plotly Express
+    fig = px.choropleth(map_data,
+        geojson=departements,  
+        locations='dep',  
+        featureidkey="properties.code",  
+        color='Accident_Id',
+        color_continuous_scale=[(0, 'white'), (0.5, 'green'), (1, 'blue')],
+        title="Moyenne d'Accident par département en France métropolitaine")
+ 
+    fig.update_geos(projection_type="mercator")
+    fig.update_geos(
+        projection_scale=25,
+        center={"lon": 2.0, "lat": 47.0}  # Centrer sur la France
+    )
+ 
+    # Afficher la carte
+    st.plotly_chart(fig)
 #--------------------------------------------------------------- Map permettant de voir le npmbre d'accident par département dans la métropole--------------------------
 
 st.subheader("Moyenne d'Accident par département en France métropolitaine")
@@ -431,7 +455,7 @@ st.sidebar.markdown("[Les accidents de la routes](#top-section)")
 st.sidebar.markdown("[Quel genre est le plus impliqué dans les accidents ?](#first-section)")
 st.sidebar.markdown("[Répartition des accidents par infrastructure](#second-section)")
 st.sidebar.markdown("[Localisation des accidents en France métropolitaine](#third-section)")
-st.sidebar.markdown("[Accidents en Agglomération vs. Hors Agglomération par heure](#fourth-section)")
+st.sidebar.markdown("[Nombre d'accident par département](#eleventh-section)")
 st.sidebar.markdown("[Moyenne d'Accident par département en France métropolitaine](#fith-section)")
 st.sidebar.markdown("[Relation entre le Type de Route et la gravité de l'accident](#sixth-section)")
 st.sidebar.markdown("[Tué et Blessé hospitalisé](#seventh-section)")
