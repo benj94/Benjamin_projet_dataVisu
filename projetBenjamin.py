@@ -451,7 +451,7 @@ def garphe(df):
 
 categories = ['Blessé hospitalisé', "Tué", "Blessé léger", "Indemne"] 
 st.header('Localisation des accidens par gravité')
-selected_category = st.selectbox("Sélectionnez un type d'essence", categories)
+selected_category = st.selectbox("Sélectionnez une catégorie de blessés", categories)
 
 if selected_category == 'Blessé hospitalisé':
     garphe(databless)
