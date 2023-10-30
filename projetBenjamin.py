@@ -113,7 +113,7 @@ def accidentgender(data3):
     st.bokeh_chart(p)
 accidentgender(data3)
 
-
+st.subheader("Doit-t-on revoir certains aménagements et infrastructure ?")
 st.markdown('<a name="second-section"></a>',  unsafe_allow_html=True)
 
 def infrastructure(data2):
@@ -382,7 +382,6 @@ gravAge(merged_data)
 
 #-------------------------------------- pieplot pourcentage d'accident par infrastructure et aménagement ---------------------------------------
 
-st.subheader("Doit-t-on revoir certains aménagements et infrastructure ?")
 st.markdown('<a name="nineth-section"></a>',  unsafe_allow_html=True)
 
 def infrastructure(data2):
